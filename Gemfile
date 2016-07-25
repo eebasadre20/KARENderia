@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'ancestry'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
