@@ -10,5 +10,6 @@
   <div class="columns medium-6">
     <h3>Restaurant comments</h3>
     <%= react_component( 'CommentList', {comments: raw( render( template: 'comments/index.json.jbuilder' ) ) } ) %>
+    <%#= render partial: 'comments/comment', locals: { comments: @comments } %>
   </div>
 </div>
