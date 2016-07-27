@@ -20,4 +20,17 @@ var Store = new _.extend( {}, EventEmitter.prototype, {
   emitChange: function ( ) {
     this.emit( Constants.CHANGE_EVENT );
   }
-}); 
+});
+
+var AppDispatcher = new FluxDispatcher();
+
+AppDispatcher.register( function ( payload ) {
+  var action = payload.actionType;
+  switch( action ) {
+    case Constants.ADD_COMMENT:
+      Store.addComment( payload.comment );
+      break;
+    default:
+      // NO-OPERATION
+  }
+} );
