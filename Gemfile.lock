@@ -66,6 +66,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
+    flux-rails-assets (2.1.0)
+      railties (>= 3.1)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     foundation-rails (6.2.3.0)
@@ -92,6 +94,8 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    lodash-rails (4.3.0)
+      railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -208,9 +212,11 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   byebug
+  flux-rails-assets
   foundation-rails (~> 6.2, >= 6.2.3.0)
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
+  lodash-rails
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
