@@ -13,6 +13,7 @@ gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 gem 'react-rails'
 gem 'flux-rails-assets'
 gem 'lodash-rails'
+gem 'sprockets-es6'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
