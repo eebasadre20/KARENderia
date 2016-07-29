@@ -3,34 +3,38 @@ const Constants = {
   ADD_COMMENT: 'comments.add'
 }
 
-var Store = new _.extend( {}, EventEmitter.prototype, {
-  _comments: [],
-  addComment: function( comment ) {
+class Store extends EventEmitter {
+  constructor() {
+    super()
+    this._comments = []
+  }
+  addComment ( comment ) {
     this._comments[comment.id] = comment;
-  },
-  comments: function( ) {
+  }
+  comments ( ) {
     return this._comments;
-  },
-  addChangeListner: function ( callback ) {
+  }
+  addChangeListner ( callback ) {
     this.on( Constants.CHANGE_EVENT, callback );
-  },
-  removeChangeListner: function ( callback ) {
+  }
+  removeChangeListner ( callback ) {
     this.removeListner( Constants.CHANGE_EVENT, callback );
-  },
-  emitChange: function ( ) {
+  }
+  emitChange ( ) {
     this.emit( Constants.CHANGE_EVENT );
   }
-});
+}
+
+let commentStore = new Store();
 
 var AppDispatcher = new Flux.Dispatcher();
 
-AppDispatcher.register( function ( payload ) {
-  var action = payload.actionType;
-  switch( action ) {
+AppDispatcher.register( ( payload ) => {
+  switch( payload.actionType ) {
     case Constants.ADD_COMMENT:
-      Store.addComment( payload.comment );
-      Store.emitChange();
-      break;
+      commentStore.addComment( payload.comment )
+      commentStore.emitChange()
+      break
     default:
       // NO-OPERATION
   }
@@ -38,11 +42,13 @@ AppDispatcher.register( function ( payload ) {
 
 // Actions
 
-var Actions = new _.extend({}, {
-  addComment: function( params ) {
+class Actions {
+  addComment( params ) {
     AppDispatcher.dispatch( {
       actionType: Constants.ADD_COMMENT,
       comment: params
     } );
   }
-} );
+}
+
+let commentActions = new Actions()
